@@ -20,5 +20,14 @@ end
 shell.run("wget https://github.com/mrLeonTheMaster/ComputerCraftElektrownia/raw/refs/heads/main/startup.lua")
 shell.run("set motd.enable false")
 print("\n\n\n\n" .. message)
-print("Press any key to reboot...")
-os.pullEvent("key")
+print("Do you want to reboot? (y/n)")
+while true do
+    local event, key = os.pullEvent("key")
+    if key == keys.y then
+        os.reboot()
+    elseif key == keys.n then
+        break
+    else:
+        print("Press y or n")
+    end
+end
