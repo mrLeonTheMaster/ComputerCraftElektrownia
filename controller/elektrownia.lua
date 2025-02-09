@@ -7,9 +7,6 @@ end
 function getControllerState(controller)
     return controller.getOutput("bottom")
 end
-function toggleControllerState(controller)
-    controller.setOutput("bottom", not controller.getOutput("bottom"))
-end
 
 local config = require("elektrownia-config")
 
