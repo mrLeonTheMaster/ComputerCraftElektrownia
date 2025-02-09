@@ -1,18 +1,18 @@
-print("Do you want to install:\n1) controller\n2)display")
+print("Do you want to install:\n1) controller\n2) display")
 while true do
     print("Press 1 or 2")
     local event, key = os.pullEvent("key")
-    if key == keys.a then
-        local type = "controller"
+    if key == keys.one then
+        local program_type = "controller"
         break
-    elseif key == keys.b then
-        local type = "display"
+    elseif key == keys.two then
+        local program_type = "display"
         break
     end
 end
 local base_url = "https://github.com/mrLeonTheMaster/ComputerCraftElektrownia/raw/refs/heads/main/"
 local message = ""
-if (type == 1 and not fs.exists("/basalt.lua")) then
+if (program_type == 1 and not fs.exists("/basalt.lua")) then
     shell.run("wget run https://basalt.madefor.cc/install.lua packed")
     message = message .. "Installed basalt. "
 end
@@ -28,12 +28,12 @@ else
     shell.run("wget " .. base_url .. "/elektrownia-config.lua")
     message = message .. "Installed the program. "
 end
-shell.run("wget " .. base_url .. type .. "/elektrownia.lua")
+shell.run("wget " .. base_url .. program_type .. "/elektrownia.lua")
 if fs.exists("/startup.lua") then
     fs.move("/startup.lua", "/startup_old.lua")
     message = message .. "startup.lua already exists, moved to startup_old.lua. "
 end
-shell.run("wget " .. base_url .. type .. "/startup.lua")
+shell.run("wget " .. base_url .. program_type .. "/startup.lua")
 shell.run("set motd.enable false")
 print("\n\n\n\n" .. message)
 print("Do you want to configure the program? (y/n)")
