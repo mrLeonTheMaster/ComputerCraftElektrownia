@@ -2,10 +2,10 @@ print("Do you want to install:\n1) controller\n2)display")
 while true do
     print("Press 1 or 2")
     local event, key = os.pullEvent("key")
-    if key == keys.1 then
+    if key == keys.a then
         local type = "controller"
         break
-    elseif key == keys.2 then
+    elseif key == keys.b then
         local type = "display"
         break
     end
