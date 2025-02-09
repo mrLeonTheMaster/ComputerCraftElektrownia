@@ -8,9 +8,11 @@ function getControllerState(controller)
     return controller.getOutput("bottom")
 end
 
-local engineController = registerController(7)
-local energyGeneratorController = registerController(6)
-local fuelFactoryController = registerController(9)
+local config = require("elektrownia-config")
+
+local engineController = registerController(config.engineControllerId)
+local energyGeneratorController = registerController(config.energyGeneratorControllerId)
+local fuelFactoryController = registerController(config.fuelFactoryControllerId)
 
 local basalt = require("basalt")
 
