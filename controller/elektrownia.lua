@@ -56,10 +56,10 @@ local function updateThreadFunction()
         energyGeneratorState = getControllerState(energyGeneratorController)
         if engineState then
             engineButton:setText("Wylacz silnik")
-            energyGeneratorButton:show
+            energyGeneratorButton:show()
         else
             engineButton:setText("Wlacz silnik")
-            energyGeneratorButton:hide
+            energyGeneratorButton:hide()
         end
         if energyGeneratorState then
             energyGeneratorButton:setText("Wylacz generator pradu")
