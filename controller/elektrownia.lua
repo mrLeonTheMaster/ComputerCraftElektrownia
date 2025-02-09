@@ -24,8 +24,8 @@ main:addLabel():setPosition(1, 1):setText("Aby wylogowac przytrzymaj CTRL+T")
 
 local frame = main:addScrollableFrame():setDirection("vertical"):setSize("parent.w", "parent.h - 1"):setPosition(1, 2)
 
-frame:addLabel():setPosition(1, 2):setText("Silnik:"):setForeground(colors.white)
-frame:addLabel():setPosition(1, 7):setText("Generator:"):setForeground(colors.white)
+frame:addLabel():setPosition(1, 2):setText("Silnik:"):setForeground(colors.white):show()
+frame:addLabel():setPosition(1, 7):setText("Generator:"):setForeground(colors.white):show()
 
 engineStateLabel = frame:addLabel():setPosition(11, 2)
 energyGeneratorStateLabel = frame:addLabel():setPosition(11, 7)
