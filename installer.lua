@@ -1,4 +1,4 @@
-print("Do you want to install:\n1) controller\n2) display\n3) Exit the installer")
+print("Select option:\n1) Install the controller program\n2) Install the display program\n3) Exit the installer")
 while true do
     print("Press 1, 2 or 3")
     local event, key = os.pullEvent("key")
