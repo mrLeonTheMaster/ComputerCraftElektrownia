@@ -27,11 +27,11 @@ local frame = main:addScrollableFrame():setDirection("vertical"):setSize("parent
 frame:addLabel():setPosition(1, 2):setText("Silnik:"):setForeground(colors.white):show()
 frame:addLabel():setPosition(1, 7):setText("Generator:"):setForeground(colors.white):show()
 
-engineStateLabel = frame:addLabel():setPosition(11, 2)
-energyGeneratorStateLabel = frame:addLabel():setPosition(11, 7)
+engineStateLabel = frame:addLabel():setPosition(13, 2)
+energyGeneratorStateLabel = frame:addLabel():setPosition(13, 7)
 
-engineButton = frame:addButton():setPosition(22, 1)
-energyGeneratorButton = frame:addButton():setPosition(22, 6)
+engineButton = frame:addButton():setPosition(24, 1)
+energyGeneratorButton = frame:addButton():setPosition(24, 6)
 
 engineButton:onClick(function(self,event,button,x,y)
         if(event=="mouse_click")and(button==1)then
