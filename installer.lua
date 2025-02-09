@@ -14,7 +14,7 @@ while true do
 end
 local base_url = "https://github.com/mrLeonTheMaster/ComputerCraftElektrownia/raw/refs/heads/main/"
 local message = ""
-if (program_type == 1 and not fs.exists("/basalt.lua")) then
+if (program_type == "controller" and not fs.exists("/basalt.lua")) then
     shell.run("wget run https://basalt.madefor.cc/install.lua packed")
     message = message .. "Installed basalt. "
 end
