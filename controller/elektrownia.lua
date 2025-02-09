@@ -37,7 +37,7 @@ button1:onClick(function(self,event,button,x,y)
   end)
 button2:onClick(function(self,event,button,x,y)
     if(event=="mouse_click")and(button==1)then
-        toggleControllerState(EnergyGeneratorController)
+        toggleControllerState(energyGeneratorController)
     end
   end)
 

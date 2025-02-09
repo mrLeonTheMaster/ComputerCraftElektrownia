@@ -20,11 +20,11 @@ while true do
     monitor.setCursorPos(1, 1)
     if getControllerState(engineController) then
         if getControllerState(energyGeneratorController) then
-            monitor.setTextColor(colors.yellow)
-            monitor.write("Silnik aktywny")
-        else
             monitor.setTextColor(colors.green)
             monitor.write("Silnik i generator aktywny")
+        else
+            monitor.setTextColor(colors.yellow)
+            monitor.write("Silnik aktywny")
         end
     else
         monitor.setTextColor(colors.red)
