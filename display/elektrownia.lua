@@ -28,6 +28,7 @@ while true do
         end
     else
         monitor.setTextColor(colors.red)
-        monitor.write("Silnik wyłączony")
+        monitor.write("Silnik wylaczony")
     end
+    sleep(1)
 end

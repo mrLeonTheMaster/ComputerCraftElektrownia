@@ -28,11 +28,16 @@ main:addLabel():setPosition(1, 1):setText("Aby wylogowac przytrzymaj CTRL+T")
 local frame = main:addScrollableFrame():setDirection("vertical"):setSize("parent.w", "parent.h - 1"):setPosition(1, 2)
 
 button1 = frame:addButton():setPosition(1, 1):setText("Silnik")
-button2 = frame:addButton():setPosition(1, 2):setText("Generator")
+button2 = frame:addButton():setPosition(1, 6):setText("Generator")
 
 button1:onClick(function(self,event,button,x,y)
     if(event=="mouse_click")and(button==1)then
-      setControllerState(engineController)
+      toggleControllerState(engineController)
+    end
+  end)
+button2:onClick(function(self,event,button,x,y)
+    if(event=="mouse_click")and(button==1)then
+        toggleControllerState(EnergyGeneratorController)
     end
   end)
 
