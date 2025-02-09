@@ -15,6 +15,8 @@ local monitor = peripheral.wrap("monitor_0")
 local monX, monY = monitor.getSize()
 monitor.setTextScale(1)
 
+print("Uruchomiono.")
+
 while true do
     monitor.clear()
     monitor.setCursorPos(1, 1)

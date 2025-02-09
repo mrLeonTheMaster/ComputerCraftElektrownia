@@ -31,15 +31,15 @@ button1 = frame:addButton():setPosition(1, 1):setText("Silnik")
 button2 = frame:addButton():setPosition(1, 6):setText("Generator")
 
 button1:onClick(function(self,event,button,x,y)
-    if(event=="mouse_click")and(button==1)then
-      toggleControllerState(engineController)
-    end
-  end)
+        if(event=="mouse_click")and(button==1)then
+            toggleControllerState(engineController)
+        end
+    end)
 button2:onClick(function(self,event,button,x,y)
-    if(event=="mouse_click")and(button==1)then
-        toggleControllerState(energyGeneratorController)
-    end
-  end)
+        if(event=="mouse_click")and(button==1)then
+            toggleControllerState(energyGeneratorController)
+        end
+    end)
 
 function centerText(text)
     term.clear()
