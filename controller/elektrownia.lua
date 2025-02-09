@@ -11,7 +11,7 @@ end
 local config = require("elektrownia-config")
 
 local engineController = registerController(config.engineControllerId)
-local energyGeneratorController = registerController(config.energyGeneratorControllerId)
+local generatorController = registerController(config.generatorControllerId)
 local fuelFactoryController = registerController(config.fuelFactoryControllerId)
 
 local basalt = require("basalt")
@@ -28,53 +28,53 @@ frame:addLabel():setPosition(1, 2):setText("Silnik:"):setForeground(colors.white
 frame:addLabel():setPosition(1, 6):setText("Generator:"):setForeground(colors.white):show()
 
 engineStateLabel = frame:addLabel():setPosition(13, 2)
-energyGeneratorStateLabel = frame:addLabel():setPosition(13, 6)
+generatorStateLabel = frame:addLabel():setPosition(13, 6)
 
 engineButton = frame:addButton():setPosition(24, 1)
-energyGeneratorButton = frame:addButton():setPosition(24, 5)
+generatorButton = frame:addButton():setPosition(24, 5)
 
 engineButton:onClick(function(self,event,button,x,y)
         if(event=="mouse_click")and(button==1)then
             if engineState then
-                setControllerState(energyGeneratorController, false)
+                setControllerState(generatorController, false)
                 setControllerState(engineController, false)
             else
                 setControllerState(engineController, true)
             end
         end
     end)
-energyGeneratorButton:onClick(function(self,event,button,x,y)
+generatorButton:onClick(function(self,event,button,x,y)
         if(event=="mouse_click")and(button==1)then
-            if energyGeneratorState then
-                setControllerState(energyGeneratorController, false)
+            if generatorState then
+                setControllerState(generatorController, false)
             else
-                setControllerState(energyGeneratorController, true)
+                setControllerState(generatorController, true)
             end
         end
     end)
 
 engineState = false
-energyGeneratorState = false
+generatorState = false
 
 local function updateThreadFunction()
     while true do
         engineState = getControllerState(engineController)
-        energyGeneratorState = getControllerState(energyGeneratorController)
+        generatorState = getControllerState(generatorController)
         if engineState then
             engineButton:setText("Wylacz")
-            energyGeneratorButton:show()
+            generatorButton:show()
             engineStateLabel:setText("Aktywny"):setForeground(colors.green)
         else
             engineButton:setText("Wlacz")
-            energyGeneratorButton:hide()
+            generatorButton:hide()
             engineStateLabel:setText("Wylaczony"):setForeground(colors.red)
         end
-        if energyGeneratorState then
-            energyGeneratorButton:setText("Wylacz")
-            energyGeneratorStateLabel:setText("Aktywny"):setForeground(colors.green)
+        if generatorState then
+            generatorButton:setText("Wylacz")
+            generatorStateLabel:setText("Aktywny"):setForeground(colors.green)
         else
-            energyGeneratorButton:setText("Wlacz")
-            energyGeneratorStateLabel:setText("Wylaczony"):setForeground(colors.red)
+            generatorButton:setText("Wlacz")
+            generatorStateLabel:setText("Wylaczony"):setForeground(colors.red)
         end
         sleep(0.2)
     end

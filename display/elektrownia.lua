@@ -8,7 +8,7 @@ end
 local config = require("elektrownia-config")
 
 local engineController = registerController(config.engineControllerId)
-local energyGeneratorController = registerController(config.energyGeneratorControllerId)
+local generatorController = registerController(config.generatorControllerId)
 local fuelFactoryController = registerController(config.fuelFactoryControllerId)
 
 local monitor = peripheral.wrap("monitor_0")
@@ -32,7 +32,7 @@ while true do
     monitor.setCursorPos(1, 2)
     monitor.setTextColor(colors.white)
     monitor.write("Generator pradu: ")
-    if getControllerState(energyGeneratorController) then
+    if getControllerState(generatorController) then
         monitor.setTextColor(colors.green)
         monitor.write("aktywny")
     else
