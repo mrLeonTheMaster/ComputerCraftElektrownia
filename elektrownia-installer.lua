@@ -27,7 +27,7 @@ while true do
         os.reboot()
     elseif key == keys.n then
         break
-    else:
+    else
         print("Press y or n")
     end
 end
