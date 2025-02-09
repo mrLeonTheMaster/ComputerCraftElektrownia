@@ -20,3 +20,5 @@ end
 shell.run("wget https://github.com/mrLeonTheMaster/ComputerCraftElektrownia/raw/refs/heads/main/startup.lua")
 shell.run("set motd.enable false")
 print("\n\n\n\n" .. message)
+print("Press any key to reboot...")
+os.pullEvent("key")
