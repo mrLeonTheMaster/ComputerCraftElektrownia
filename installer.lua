@@ -1,13 +1,15 @@
-print("Do you want to install:\n1) controller\n2) display")
+print("Do you want to install:\n1) controller\n2) display\n3) Exit the installer")
 while true do
-    print("Press 1 or 2")
+    print("Press 1, 2 or 3")
     local event, key = os.pullEvent("key")
     if key == keys.one then
-        local program_type = "controller"
+        program_type = "controller"
         break
     elseif key == keys.two then
-        local program_type = "display"
+        program_type = "display"
         break
+    elseif key == keys.three then
+        return
     end
 end
 local base_url = "https://github.com/mrLeonTheMaster/ComputerCraftElektrownia/raw/refs/heads/main/"
