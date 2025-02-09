@@ -20,17 +20,24 @@ print("Uruchomiono.")
 while true do
     monitor.clear()
     monitor.setCursorPos(1, 1)
+    monitor.setTextColor(colors.white)
+    monitor.write("Silnik: ")
     if getControllerState(engineController) then
-        if getControllerState(energyGeneratorController) then
-            monitor.setTextColor(colors.green)
-            monitor.write("Silnik i generator aktywny")
-        else
-            monitor.setTextColor(colors.yellow)
-            monitor.write("Silnik aktywny")
-        end
+        monitor.setTextColor(colors.green)
+        monitor.write("aktywny")
     else
         monitor.setTextColor(colors.red)
-        monitor.write("Silnik wylaczony")
+        monitor.write("wylaczony")
     end
-    sleep(1)
+    monitor.setCursorPos(1, 2)
+    monitor.setTextColor(colors.white)
+    monitor.write("Generator pradu: ")
+    if getControllerState(energyGeneratorController) then
+        monitor.setTextColor(colors.green)
+        monitor.write("aktywny")
+    else
+        monitor.setTextColor(colors.red)
+        monitor.write("wylaczony")
+    end
+    sleep(0.5)
 end
