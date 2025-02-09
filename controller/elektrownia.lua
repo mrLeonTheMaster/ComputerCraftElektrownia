@@ -7,6 +7,9 @@ end
 function getControllerState(controller)
     return controller.getOutput("bottom")
 end
+function toggleControllerState(controller)
+    controller.setOutput("bottom", not controller.getOutput("bottom"))
+end
 
 local config = require("elektrownia-config")
 
@@ -24,9 +27,14 @@ main:addLabel():setPosition(1, 1):setText("Aby wylogowac przytrzymaj CTRL+T")
 
 local frame = main:addScrollableFrame():setDirection("vertical"):setSize("parent.w", "parent.h - 1"):setPosition(1, 2)
 
-frame:addButton():setPosition(2, 2):setText("Scrollable")
-frame:addButton():setPosition(2, 16):setText("Inside")
-frame:addButton():setPosition(2, 30):setText("Outside")
+button1 = frame:addButton():setPosition(1, 1):setText("Silnik")
+button2 = frame:addButton():setPosition(1, 2):setText("Generator")
+
+button1:onClick(function(self,event,button,x,y)
+    if(event=="mouse_click")and(button==1)then
+      setControllerState(engineController)
+    end
+  end)
 
 function centerText(text)
     term.clear()
