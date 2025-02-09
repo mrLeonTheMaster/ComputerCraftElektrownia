@@ -1,3 +1,17 @@
+function registerController(id)
+    return peripheral.wrap("redrouter_" .. tostring(id))
+end
+function setControllerState(controller, state)
+    controller.setOutput("bottom", state)
+end
+function getControllerState(controller)
+    return controller.getOutput("bottom")
+end
+
+local engineController = registerController(7)
+local energyGeneratorController = registerController(6)
+local fuelFactoryController = registerController(9)
+
 local basalt = require("basalt")
 
 local main = basalt.createFrame():setTheme({FrameBG = colors.black, FrameFG = colors.lightGray})
@@ -6,16 +20,11 @@ window_x, window_y = main.getSize()
 
 main:addLabel():setPosition(1, 1):setText("Aby wylogowac przytrzymaj CTRL+T")
 
-local sub1 = main:addScrollableFrame():setDirection("vertical"):setSize(window_x/2, window_y-1):setPosition(1, 2)
-local sub2 = main:addScrollableFrame():setDirection("vertical"):setSize(window_x/2, window_y-1):setPosition("parent.w/2+1", 2)
+local frame = main:addScrollableFrame():setDirection("vertical"):setPosition(1, 2)
 
-sub1:addButton():setPosition(2, 2):setText("Scrollable")
-sub1:addButton():setPosition(2, 16):setText("Inside")
-sub1:addButton():setPosition(2, 30):setText("Outside")
-
-sub2:addButton():setPosition(2, 2):setText("Scrollable")
-sub2:addButton():setPosition(2, 16):setText("Inside")
-sub2:addButton():setPosition(2, 30):setText("Outside")
+frame:addButton():setPosition(2, 2):setText("Scrollable")
+frame:addButton():setPosition(2, 16):setText("Inside")
+frame:addButton():setPosition(2, 30):setText("Outside")
 
 function centerText(text)
     term.clear()
