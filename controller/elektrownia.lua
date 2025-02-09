@@ -25,13 +25,13 @@ main:addLabel():setPosition(1, 1):setText("Aby wylogowac przytrzymaj CTRL+T")
 local frame = main:addScrollableFrame():setDirection("vertical"):setSize("parent.w", "parent.h - 1"):setPosition(1, 2)
 
 frame:addLabel():setPosition(1, 2):setText("Silnik:"):setForeground(colors.white):show()
-frame:addLabel():setPosition(1, 7):setText("Generator:"):setForeground(colors.white):show()
+frame:addLabel():setPosition(1, 6):setText("Generator:"):setForeground(colors.white):show()
 
 engineStateLabel = frame:addLabel():setPosition(13, 2)
-energyGeneratorStateLabel = frame:addLabel():setPosition(13, 7)
+energyGeneratorStateLabel = frame:addLabel():setPosition(13, 6)
 
 engineButton = frame:addButton():setPosition(24, 1)
-energyGeneratorButton = frame:addButton():setPosition(24, 6)
+energyGeneratorButton = frame:addButton():setPosition(24, 5)
 
 engineButton:onClick(function(self,event,button,x,y)
         if(event=="mouse_click")and(button==1)then
@@ -63,7 +63,7 @@ local function updateThreadFunction()
         if engineState then
             engineButton:setText("Wylacz")
             energyGeneratorButton:show()
-            engineStateLabel:setText("Wlaczony"):setForeground(colors.green)
+            engineStateLabel:setText("Aktywny"):setForeground(colors.green)
         else
             engineButton:setText("Wlacz")
             energyGeneratorButton:hide()
@@ -71,7 +71,7 @@ local function updateThreadFunction()
         end
         if energyGeneratorState then
             energyGeneratorButton:setText("Wylacz")
-            energyGeneratorStateLabel:setText("Wlaczony"):setForeground(colors.green)
+            energyGeneratorStateLabel:setText("Aktywny"):setForeground(colors.green)
         else
             energyGeneratorButton:setText("Wlacz")
             energyGeneratorStateLabel:setText("Wylaczony"):setForeground(colors.red)
