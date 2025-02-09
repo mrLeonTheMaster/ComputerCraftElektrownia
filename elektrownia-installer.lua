@@ -10,8 +10,8 @@ if fs.exists("/elektrownia.lua") then
         fs.delete("/elektrownia_old")
     end
     fs.makeDir("/elektrownia_old")
-    fs.move("/elektrownia_old/elektrownia.lua")
-    fs.move("/elektrownia_old/startup.lua")
+    fs.move("/elektrownia.lua", "/elektrownia_old/elektrownia.lua")
+    fs.move("/startup.lua", "/elektrownia_old/startup.lua")
     message = message .. "Updated the program, old version moved to elektrownia_old/. "
 end
 shell.run("wget https://github.com/mrLeonTheMaster/ComputerCraftElektrownia/raw/refs/heads/main/elektrownia.lua")
