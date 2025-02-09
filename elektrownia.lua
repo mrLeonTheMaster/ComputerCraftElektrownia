@@ -20,7 +20,7 @@ window_x, window_y = main.getSize()
 
 main:addLabel():setPosition(1, 1):setText("Aby wylogowac przytrzymaj CTRL+T")
 
-local frame = main:addScrollableFrame():setDirection("vertical"):setPosition(1, 2)
+local frame = main:addScrollableFrame():setDirection("vertical"):setSize("parent.w", "parent.h - 1"):setPosition(1, 2)
 
 frame:addButton():setPosition(2, 2):setText("Scrollable")
 frame:addButton():setPosition(2, 16):setText("Inside")
