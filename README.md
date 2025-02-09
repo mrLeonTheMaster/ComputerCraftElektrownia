@@ -1,1 +1,1 @@
-wget run https://github.com/mrLeonTheMaster/ComputerCraftElektrownia/raw/refs/heads/main/elektrownia-installer.lua
+Universal installer: `wget run https://github.com/mrLeonTheMaster/ComputerCraftElektrownia/raw/refs/heads/main/installer.lua`
