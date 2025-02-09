@@ -42,6 +42,8 @@ print("Do you want to configure the program? (y/n)")
 while true do
     local event, key = os.pullEvent("key")
     if key == keys.y then
+        print("Starting editor...")
+        sleep(1)
         shell.run("edit /elektrownia-config.lua")
         break
     elseif key == keys.n then
@@ -57,6 +59,7 @@ while true do
     if key == keys.y then
         os.reboot()
     elseif key == keys.n then
+        sleep(1)
         break
     else
         print("Press y or n")
